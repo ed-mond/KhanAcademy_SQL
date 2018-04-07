@@ -1,0 +1,24 @@
+/* What does the app's SQL look like? */
+
+CREATE TABLE workout (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    weight INTEGER,
+    sets REAL,
+    reps REAL);
+
+INSERT INTO workout (name, weight, sets, reps) VALUES ("bench press", 135, 3, 5);
+INSERT INTO workout (name, weight, sets, reps) VALUES ("squat", 225, 4, 4);
+INSERT INTO workout (name, weight, sets, reps) VALUES ("deadlift", 315, 1, 6);
+INSERT INTO workout (name, weight, sets, reps) VALUES ("pullup", 45, 4, 8);
+
+SELECT * FROM workout;
+
+UPDATE workout SET weight = 245 WHERE id
+ = 2;
+ 
+SELECT * FROM workout;
+
+DELETE FROM workout where id = 3;
+
+SELECT * FROM workout;
