@@ -1,0 +1,43 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE celebs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, gender TEXT);
+
+INSERT INTO celebs (name, gender) VALUES ("A1", "M");
+INSERT INTO celebs (name, gender) VALUES ("A2", "F");
+INSERT INTO celebs (name, gender) VALUES ("A3", "F");
+INSERT INTO celebs (name, gender) VALUES ("A4", "M");
+INSERT INTO celebs (name, gender) VALUES ("A5", "M");
+INSERT INTO celebs (name, gender) VALUES ("A6", "F");
+
+CREATE TABLE movies (title TEXT, celeb_id INTEGER);
+
+INSERT INTO movies VALUES ("movie1", 3);
+INSERT INTO movies VALUES ("movie2", 1);
+INSERT INTO movies VALUES ("movie3", 4);
+INSERT INTO movies VALUES ("movie4", 2);
+INSERT INTO movies VALUES ("movie5", 6);
+INSERT INTO movies VALUES ("movie6", 5);
+
+CREATE TABLE married (m_id INTEGER, f_id INTEGER);
+
+INSERT INTO married VALUES (1, 3);
+INSERT INTO married VALUES (4, 2);
+INSERT INTO married VALUES (5, 6);
+
+/* what movies were they in? */
+
+SELECT celebs.name, movies.title
+    FROM celebs
+    JOIN movies
+    ON celebs.id = movies.celeb_id
+    ORDER BY celebs.name ASC;
+
+/* who's married to who? */
+
+SELECT male.name, female.name
+    FROM married
+    JOIN celebs male
+    ON male.id = married.m_id
+    JOIN celebs female
+    ON female.id = married.f_id;
