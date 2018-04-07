@@ -1,0 +1,40 @@
+CREATE TABLE store (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    location TEXT,
+    quantity INTEGER,
+    price REAL,
+    rating REAL);
+
+INSERT INTO store VALUES (1, "Bicycle", "NJ", 5, 300, 4.4);
+INSERT INTO store VALUES (2, "Boots", "NY", 32, 79.99, 4.1);
+INSERT INTO store VALUES (3, "Poncho", "PA", 14, 129, 4.7);
+INSERT INTO store VALUES (4, "Beanie", "NY", 46, 20, 3.8);
+INSERT INTO store VALUES (5, "Granola Bar", "NY", 249, 1.50, 4.0);
+INSERT INTO store VALUES (6, "Tent", "PA", 6, 500, 4.5);
+INSERT INTO store VALUES (7, "Cap", "PA", 28, 25, 2.6);
+INSERT INTO store VALUES (8, "Socks", "NJ", 62, 14, 5.0);
+INSERT INTO store VALUES (9, "Whistle", "NY", 183, 7, 4.8);
+INSERT INTO store VALUES (10, "Backpack", "PA", 52, 95, 3.5);
+INSERT INTO store VALUES (11, "Spork", "NJ", 48, 12, 4.6);
+INSERT INTO store VALUES (12, "Bowl", "NY", 38, 17, 3.6);
+INSERT INTO store VALUES (13, "Matches", "NY", 87, 3, 2.1);
+INSERT INTO store VALUES (14, "Rope", "PA", 18, 50, 4.2);
+INSERT INTO store VALUES (15, "GPS", "NJ", 10, 600, 4.3);
+
+SELECT avg(price) FROM store;
+
+SELECT id, name, max(quantity) FROM store;
+
+SELECT * FROM store WHERE location = "PA" ORDER BY price DESC;
+
+SELECT * FROM store WHERE rating > 4.0 ORDER BY price;
+
+SELECT id, name, CASE
+    WHEN rating = 5.0 THEN "Perfect"
+    WHEN rating >= 4.0 AND rating < 5.0 THEN "Great"
+    WHEN rating >= 3.0 AND rating < 4.0 THEN "Average"
+    WHEN rating >= 2.0 AND rating < 3.0 THEN "Bad"
+    END "overall_rating"
+    FROM store
+    ORDER BY overall_rating DESC;
