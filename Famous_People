@@ -1,5 +1,3 @@
-/* Create table about the people and what they do here */
-
 CREATE TABLE celebs (
     id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, gender TEXT);
 
